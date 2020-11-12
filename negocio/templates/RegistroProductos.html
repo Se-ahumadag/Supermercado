@@ -1,0 +1,98 @@
+{% extends "plantillaBase.html" %}
+{% load static %}
+{% block titulo %}
+	<h1 class="row justify-content-center"> Registro de Productos</h1>
+{% endblock %}
+{% block contenido %}			
+{{ mensaje }}
+		<Form action="{% url 'RegistroProductos' %}" method="post">
+		{% csrf_token %}
+			<div class="row">
+				<div class="col-12 col-md-1 offset-md-3">Codigo</div>
+				<div class="col-12 col-md-4">
+					<input type="text" name="txtCodigo" class="txtCodigo form-control" value="{{ item.id }}">
+				</div>
+				<div class="col-4 col-md-2 offset-md-5">
+					<button class="btnBuscar btn btn-success" name="btnBuscar" type="submit" value="Buscar">Buscar</button>
+{% if item.id > 0 %}
+					<button class="btnEliminar btn btn-danger" name="btnEliminar" type="submit" value="Eliminar">Eliminar</button>
+{% endif %}
+				</div>
+			</div>
+			<br>
+			
+			<div class="row">
+				<div class="col-12 col-md-1 offset-md-3">Imagen</div>
+				<div class="col-12 col-md-4">
+					<input type="file" name="fileImagen" class="fileImagen form-control" value="{{ item.imagen }}">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-12 col-md-1 offset-md-3">Descripcion</div>
+				<div class="col-12 col-md-4">
+					<input type="text" name="txtDescripcion" class="txtDescripcion form-control" value="{{ item.descripcion }}">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-md-1 offset-md-3">Precio</div>
+				<div class="col-12 col-md-4">
+					<input type="text" name="txtPrecio" class="txtPrecio form-control" maxlength="12" value="{{ item.precio }}">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-md-1 offset-md-3">Stock</div>
+				<div class="col-12 col-md-4">
+					<input type="text" name="txtStock" class="txtStock form-control" maxlength="6" value="{{ item.stock }}">
+				</div>
+			</div>			
+			<div class="row">
+				<div class="col-12 col-md-1 offset-md-3">Marca</div>
+				<div class="col-12 col-md-4">
+					<input type="text" name="txtMarca" class="txtMarca form-control" maxlength="6" value="{{ item.marca }}">
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-12 col-md-4 offset-md-5">
+					<button class="btnGrabar btn btn-success" name="btnGrabar" type="submit" value="Grabar">Enviar</button>
+					<button class="btnListar btn btn-success" name="btnListar" type="submit" value="Listar">Listar</button>
+				</div>
+			</div>
+			<br><br>
+			<br><br>		
+		</form>
+
+	{% endblock %}
+	
+	{% block listado %}
+		<div class"row justify-content-center">
+			<div>
+				<div class="table-responsive">
+					<table class="table">
+						<thead class="table-active">
+							<th>codigo</th>
+							<th>Imagen</th>
+							<th>Descripcion</th>
+							<th>Precio</th>
+							<th>Stock</th>
+							<th>Marca</th>
+						</thead>
+						<tbody>
+{% for fila in lista %}
+							<tr>
+								<td>{{ fila.id }}</td>
+								<td>{{ fila.imagen }} </td>
+								<td>{{ fila.descripcion }}</td>
+								<td>{{ fila.precio }}</td>
+								<td>{{ fila.stock }}</td>
+								<td>{{ fila.marca }}</td>
+							</tr>
+{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	
+	{% endblock %}

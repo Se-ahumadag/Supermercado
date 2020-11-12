@@ -1,0 +1,65 @@
+{% extends "plantillaBase.html" %}
+{% load static %}
+{% block titulo %}
+	<h1 class="row justify-content-center"> Galeria de Productos</h1>
+{% endblock %}
+
+{% block contenido %}
+
+	<div class="galeria">
+    <div class="row">
+	<div class="col-12 col-md-2 offset-md-3 class card justify-content-center">
+		<img class="img-fluid" src="{% static 'Images/Avena_Alpina.png' %}" alt="Galeria 1" />
+		<h5>Descripcion: Yogurt de avena  </h5>
+		<h5>Precio: $250 </h5>
+		<h5>Stock: 100 </h5>
+		<h5>Marca: Alpina </h5>
+		</div>
+	<div class="col-12 col-md-2 class card">
+    <img class="img-fluid" src="{% static 'Images/Colgate.jpg' %}" alt="Galeria 2"  />
+		<h5>Descripcion: Pasta dental de frecura total  </h5>
+		<h5>Precio: $1200 </h5>
+		<h5>Stock: 10 </h5>
+		<h5>Marca: Colgate </h5>
+	   </div>
+	<div class="col-12 col-md-2 class card">
+    <img class="img-fluid" src="{% static 'Images/Super_Pollo.jpg' %}" alt="Galeria 3" />
+		<h5>Descripcion: Tiritas de pechuga  </h5>
+		<h5>Precio: $2500 </h5>
+		<h5>Stock: 5 </h5>
+		<h5>Marca: Super pollo </h5>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-md-2 offset-md-3  class card">
+	<img class="img-fluid" src="{% static 'Images/pepsi-zero.png' %}" alt="Galeria 2"  />
+		<h5>Descripcion: bebida de 3 litros  </h5>
+		<h5>Precio: $990 </h5>
+		<h5>Stock: 20 </h5>
+		<h5>Marca: Pepsi </h5>
+	   </div>
+	   <div class="col-12 col-md-2 class card">
+	<img class="img-fluid" src="{% static 'Images/capri.jpg' %}" alt="Galeria 2"  />
+		<h5>Descripcion: Chocolate sabor original </h5>
+		<h5>Precio: $1150 </h5>
+		<h5>Stock: 50 </h5>
+		<h5>Marca: Capri </h5>
+	   </div>
+	   <div class="col-12 col-md-2 class card">
+	<img class="img-fluid" src="{% static 'Images/Pan-de-Molde-Bimbo.png' %}" alt="Galeria 2"  />
+		<h5>Descripcion: Pan de molde blanco  </h5>
+		<h5>Precio: $839 </h5>
+		<h5>Stock: 15 </h5>
+		<h5>Marca: bimbo </h5>
+	   </div>
+	</div>
+  </div>
+  
+  <div class="row justify-content-center">
+		<button class="enlace btn-warning" role="link" onclick="window.location='RegistroProductos'">Registro de Productos</button>
+</div>
+  
+ {% endblock %} 
+ 
+ {% block listado %}
+ {% endblock %}
